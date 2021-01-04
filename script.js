@@ -15,6 +15,16 @@ const ball = {
     dy: -4
 };
 
+// create paddle properties
+const paddle = {
+    x: canvas.width /2 - 40,
+    y: canvas.height - 20,
+    w: 80,
+    h: 10,
+    speed: 8,
+    dx: 0
+};
+
 // Draw the ball in the canvas from canvas documentation
 
 function drawball() {
@@ -25,6 +35,17 @@ function drawball() {
     ctx.closePath();
 }
 drawball();
+
+// Draw the paddle in the canvas from canvas documentation
+
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h); // rectangle
+    ctx.fillStyle = '#0095dd'; //filling the circle making it visible
+    ctx.fill();
+    ctx.closePath();
+}
+drawPaddle();
 
 // rules and close evt handlers
 
