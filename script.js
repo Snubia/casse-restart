@@ -13,13 +13,18 @@ const ball = {
     speed: 4,
     dx: 4,
     dy: -4
-}
+};
 
-// Draw the ball in the canvas
+// Draw the ball in the canvas from canvas documentation
 
 function drawball() {
-    
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2); // Outer circle
+    ctx.fillStyle = '#0095dd'; //filling the circle making it visible
+    ctx.fill();
+    ctx.closePath();
 }
+drawball();
 
 // rules and close evt handlers
 
