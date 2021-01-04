@@ -4,6 +4,8 @@ const rules = document.getElementById('rules');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d')
 
+let score = 0;
+
 // Create balls properties
 
 const ball = {
@@ -34,7 +36,7 @@ function drawball() {
     ctx.fill();
     ctx.closePath();
 }
-drawball();
+
 
 // Draw the paddle in the canvas from canvas documentation
 
@@ -45,7 +47,22 @@ function drawPaddle() {
     ctx.fill();
     ctx.closePath();
 }
-drawPaddle();
+
+
+// Draw everything inside the canvas
+
+function draw() {
+    drawball();
+    drawPaddle();
+    drawScore();
+}
+
+// Draw score
+function drawScore() {
+    ctx.font = '20px Arial';
+    ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
+}
+draw();
 
 // rules and close evt handlers
 
