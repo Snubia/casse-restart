@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #6495ED;
+    display: flex;
+    flex-direction: column;
+}
