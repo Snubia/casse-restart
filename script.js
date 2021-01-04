@@ -5,6 +5,9 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d')
 
 let score = 0;
+// bricks props
+const brickRowcount = 9;
+const brickColumnCount = 5;
 
 // Create balls properties
 
@@ -27,6 +30,27 @@ const paddle = {
     dx: 0
 };
 
+// create bricks properties:
+const brickInfo = {
+    w: 70,
+    h: 20,
+    padding: 10,
+    offsetX: 45,
+    offsetY: 60,
+    visible: true // when hit the bricks dissapears
+}
+
+// create breacks (arrays with bricks inside)
+
+const bricks = [];
+for(let i =0; i < brickRowcount; i++) {
+bricks[i] = [];
+for(let j = 0; j < brickColumnCount; j++) {
+    const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
+    const y = j * (brickInfo.w + brickInfo.padding) + brickInfo.offsetY;
+    bricks[i][j] = {x, y, ...brickInfo} // spread operator
+} 
+}
 // Draw the ball in the canvas from canvas documentation
 
 function drawball() {
@@ -47,6 +71,8 @@ function drawPaddle() {
     ctx.fill();
     ctx.closePath();
 }
+
+// draw bricks on canvas
 
 
 // Draw everything inside the canvas
