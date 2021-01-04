@@ -1,6 +1,6 @@
 # casse-restart
 
-A game using HTMl5 and Canvas API, CSS and Javascript.
+A game using HTMl5, CSS, Javascript and Canvas API.
 
 # Canvas
 

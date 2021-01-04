@@ -20,7 +20,7 @@ h1 {
 canvas {
     background: #8FBC8F;
     display: block;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .btn {
     cursor: pointer;
