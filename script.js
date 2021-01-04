@@ -88,6 +88,9 @@ function drawBricks() {
 // Draw everything inside the canvas
 
 function draw() {
+
+    // clear the canvas so it does not show continues lines
+    ctx.clearRect(0,0, canvas.width, canvas.height);
     drawball();
     drawPaddle();
     drawScore();
@@ -107,7 +110,7 @@ function drawScore() {
 
       //detect the wall
       if(paddle.x + paddle.w > canvas.width) {
-          paddle.x = canvas.width = paddle.w;
+          paddle.x = canvas.width - paddle.w;
       }
       if(paddle.x < 0) {
           paddle.x = 0 // if it tries to exit on the side, paddle = 0.
@@ -117,9 +120,6 @@ function drawScore() {
 function update() {
     movePaddle();
 
-  
-
-
 // draw everything
 draw();
 
@@ -128,9 +128,23 @@ requestAnimationFrame(update);
 }
 
 update();
-// keydown
+
+// keydown event
 function keyDown(e) {
-    console.log(1);
+    if(e.key === 'Right' || 'ArrowRight') {
+        paddle.dx = paddle.speed;
+    } else if(e.key === 'Left' || e.key === 'ArrowLeft') {
+        paddle.dx = -paddle.speed;
+    }
+}
+
+// keyup event
+function keyUp(e) {
+    console.log(e.key);
+    // if(e.key === 'Right' || e.key === 'ArrowRight' || e.key === 'Left' || 
+    // e.key === 'ArrowLeft') {
+    //     paddle.dx = 0;
+    // } 
 }
 
 // keybord even to make it move
