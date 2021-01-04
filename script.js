@@ -99,7 +99,43 @@ function drawScore() {
     ctx.font = '20px Arial';
     ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
+
+  // move paddle on convas
+
+  function movePaddle() {
+      paddle.x += paddle.dx;
+
+      //detect the wall
+      if(paddle.x + paddle.w > canvas.width) {
+          paddle.x = canvas.width = paddle.w;
+      }
+      if(paddle.x < 0) {
+          paddle.x = 0 // if it tries to exit on the side, paddle = 0.
+      }
+  }
+// update canvas 
+function update() {
+    movePaddle();
+
+  
+
+
+// draw everything
 draw();
+
+requestAnimationFrame(update);
+
+}
+
+update();
+// keydown
+function keyDown(e) {
+    console.log(1);
+}
+
+// keybord even to make it move
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
 
 // rules and close evt handlers
 
