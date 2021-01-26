@@ -14,3 +14,5 @@ A game using HTMl5, CSS, Javascript and Canvas API.
 8. Move ball and add wall bounderies
 9. Increase the score after breaking wall
 10. Lose and reset.
+
+# Demo
